@@ -601,20 +601,15 @@ button {
   flex-wrap: wrap;
   column-gap: 300px;
   margin-top: 50px;
+  margin-bottom: 50px;
   row-gap: 60px;
-  justify-content: space-between;
-  padding: 0 24px;
-  font-weight: 500;
-  font-size: 20px;
-  letter-spacing: 0.02em;
 }
 .checkout__form-block {
-  width: calc(50% - 100px);
+  width: calc(50% - 150px);
 }
 .checkout__form-title {
   font-weight: 500;
   font-size: 15px;
-  line-height: 140%;
   margin-bottom: 47px;
 }
 .checkout__form-fields {
@@ -626,18 +621,48 @@ button {
   border: none;
   border-bottom: 1px solid black;
   padding-bottom: 16px;
+  outline: none;
 }
 .checkout__form-list {
   display: flex;
   flex-direction: column;
-  row-gap: 30px;
+  row-gap: 35px;
 }
 .checkout__form-item {
   display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.02em;
 }
-.checkout__form-count {
+.checkout__form-item-count {
   background: #F1EADC;
   padding: 15px 24px;
+}
+.checkout__form-lable {
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  column-gap: 14px;
+}
+.checkout__form-lable input {
+  width: 22px;
+  height: 22px;
+  background-color: black;
+}
+.checkout__form-btn {
+  padding: 22px 50px;
+  background: #6E9C9F;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+}
+.checkout__form-comit {
+  border: none;
+  outline: none;
+  padding-bottom: 110px;
+  border-bottom: 1px solid black;
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

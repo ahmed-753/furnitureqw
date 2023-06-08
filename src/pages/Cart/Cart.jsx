@@ -1,9 +1,11 @@
 import {useContext} from "react";
 import {CustomContext} from "../../config/context/context.jsx";
+import {useNavigate} from "react-router-dom";
 
 const Cart = () => {
 
     const {user,addCartsCountMinus,addCartsCountPlus} = useContext(CustomContext)
+    const  navigate = useNavigate()
 
 
     return (
@@ -65,10 +67,9 @@ const Cart = () => {
                         Итоговая стоимость:
                         {user.carts?.reduce((acc,rec) => acc + rec.price * rec.count, 0)}
                     </p>
-                    <button className='cart__bottom-btn'>
+                    <button onClick={() => navigate('/checkout')} className='cart__bottom-btn'>
                         Оформить заказ
                     </button>
-
                 </div>
             </div>
         </section>

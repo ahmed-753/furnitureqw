@@ -119,6 +119,26 @@ const Context = (props) => {
         })
     }
 
+
+    const  addOrder = (order) => {
+        api.patch(`users/${user.id}`,{
+            headers: {
+                'content-type': 'application/json'
+            },
+            json: {
+                orders:[
+                    ...user.orders,order
+                ]
+
+            }
+        }).json().then((res) => {
+            setUser(res);
+            localStorage.setItem('user', JSON.stringify(res));
+        })
+
+
+    }
+
     // Фоворить
     const getHitSale = () => {
         api('products?_sort=sale&_order=desc&_limit=12').json()
@@ -154,6 +174,7 @@ const Context = (props) => {
         addCarts,
         addCartsCountPlus,
         addCartsCountMinus,
+        addOrder
 
 };
 
