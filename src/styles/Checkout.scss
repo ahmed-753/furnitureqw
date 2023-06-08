@@ -1,0 +1,59 @@
+.checkout{
+  padding: 40px 0 102px;
+
+  &__form{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 300px;
+    margin-top: 50px;
+    row-gap:60px;
+
+
+    &-block{
+      width: calc(50% - 100px);
+    }
+
+    &-title{
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 140%;
+      margin-bottom: 47px;
+    }
+
+    &-fields{
+      display: flex;
+      flex-direction: column;
+      row-gap: 35px;
+    }
+
+    &-field{
+      border: none;
+      border-bottom: 1px solid black;
+      padding-bottom:16px;
+
+    }
+
+    &-list{
+      display: flex;
+      flex-direction: column;
+      row-gap: 30px;
+    }
+
+    &-item{
+      display: flex;
+    }justify-content: space-between;
+    padding: 0 24px ;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    &-count{
+      background: #F1EADC;
+      padding: 15px 24px;
+    }
+
+  }
+
+
+
+
+}
