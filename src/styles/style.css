@@ -637,7 +637,6 @@ button {
   letter-spacing: 0.02em;
 }
 .checkout__form-item-count {
-  background: #F1EADC;
   padding: 15px 24px;
 }
 .checkout__form-lable {
@@ -663,6 +662,16 @@ button {
   padding-bottom: 110px;
   border-bottom: 1px solid black;
   width: 100%;
+}
+.checkout__popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  transform: translate(-100%);
+  background: #6E9C9F;
+  padding: 40px 60px;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

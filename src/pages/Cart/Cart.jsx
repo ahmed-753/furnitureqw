@@ -62,15 +62,18 @@ const Cart = () => {
                          <h3 style={{ textAlign:'center', color:'red' , margin:'100px'}}> Пока в корзине нечого нет </h3>
                     }
                     </div>
-                <div className='cart__bottom'>
-                    <p className='cart__bottom-count'>
-                        Итоговая стоимость:
-                        {user.carts?.reduce((acc,rec) => acc + rec.price * rec.count, 0)}
-                    </p>
-                    <button onClick={() => navigate('/checkout')} className='cart__bottom-btn'>
-                        Оформить заказ
-                    </button>
-                </div>
+
+                {
+                    user.carts.length ?  <div className='cart__bottom'>
+                        <p className='cart__bottom-count'>
+                            Итоговая стоимость:
+                            {user.carts?.reduce((acc,rec) => acc + rec.price * rec.count, 0)}
+                        </p>
+                        <button onClick={() => navigate('/checkout')} className='cart__bottom-btn'>
+                            Оформить заказ
+                        </button>
+                    </div> : ''
+                }
             </div>
         </section>
     );

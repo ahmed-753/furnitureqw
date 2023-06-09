@@ -48,7 +48,6 @@
       font-size: 20px;
       letter-spacing: 0.02em;
       &-count{
-        background: #F1EADC;
         padding: 15px 24px;
       }
     }
@@ -78,9 +77,19 @@
       padding-bottom:110px ;
       border-bottom: 1px solid black;
       width: 100%;
-
-
     }
+  }
+
+
+  &__popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    transform: translate(-50% - 50%);
+    background: #6E9C9F;
+    padding: 40px 60px;
+    text-align: center;
 
   }
 

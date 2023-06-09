@@ -120,7 +120,7 @@ const Context = (props) => {
     }
 
 
-    const  addOrder = (order) => {
+    const  addOrder = (order,setPopup,redirect) => {
         api.patch(`users/${user.id}`,{
             headers: {
                 'content-type': 'application/json'
@@ -128,12 +128,14 @@ const Context = (props) => {
             json: {
                 orders:[
                     ...user.orders,order
-                ]
-
+                ],
+                carts:[]
             }
         }).json().then((res) => {
             setUser(res);
             localStorage.setItem('user', JSON.stringify(res));
+            setPopup(true)
+            redirect()
         })
 
 

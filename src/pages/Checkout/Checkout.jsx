@@ -1,9 +1,15 @@
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import {CustomContext} from "../../config/context/context.jsx";
 import {useForm} from "react-hook-form";
+import {useNavigate} from "react-router-dom";
 
 
 const Checkout = () => {
+
+    const navigate = useNavigate()
+    const {user,addOrder} = useContext(CustomContext)
+    const [popup, setPopup] = useState(false)
+    const [count ,setCount] = useState(10)
 
     const {
         register,
@@ -14,8 +20,27 @@ const Checkout = () => {
     } = useForm()
 
 
-    const {user,addOrder} = useContext(CustomContext)
+    const submitForm = ((data) => {
+        let order = {
+            ...data,
+            order:user.carts,
+            totalPrice:user.carts?.reduce((acc,rec) => acc + rec.price * rec.count, 0)
+        }
+        addOrder(order,setPopup,redirect)
+    })
 
+
+    const redirect = () => {
+        setInterval(() => {
+         setCount( prev => {
+             if(prev < 2){
+                 navigate('/')
+                 return 1
+             }
+             return prev - 1
+         })
+        },1000)
+    }
 
     return (
         <section className='Checkout'>
@@ -23,15 +48,15 @@ const Checkout = () => {
                 <h2 className='cart__title'>
                     Оформить заказ
                 </h2>
-                <form className='checkout__form'>
+                <form className='checkout__form' onSubmit={handleSubmit(submitForm)}>
                     <div className='checkout__form-block'>
                         <h3 className='checkout__form-title'>
                             Данные покупателя
                         </h3>
                         <div className='checkout__form-fields'>
-                            <input  defaultValue={user.name} className='checkout__form-field' type='text' pattern='Имя'/>
-                            <input defaultValue={user.email} className='checkout__form-field' type='text' pattern='E-mail'/>
-                            <input defaultValue={user.phone} className='checkout__form-field' type='text' pattern='Телефон'/>
+                            <input {...register('name')}    value={user.name} className='checkout__form-field' type='text' placeholder='Имя'/>
+                            <input {...register('email')}   value={user.email} className='checkout__form-field' type='text' placeholder='E-mail'/>
+                            <input {...register('phone')}   value={user.phone} className='checkout__form-field' type='text' placeholder='Телефон'/>
                         </div>
                     </div>
                     <div className='checkout__form-block'>
@@ -74,11 +99,11 @@ const Checkout = () => {
                             Адрес получателя
                         </h3>
                         <div className='checkout__form-fields'>
-                            <input className='checkout__form-field' type='text' pattern='Страна'/>
-                            <input className='checkout__form-field' type='text' pattern='Город'/>
-                            <input className='checkout__form-field' type='text' pattern='Улица'/>
-                            <input className='checkout__form-field' type='text' pattern='Дом'/>
-                            <input className='checkout__form-field' type='text' pattern='Квартира'/>
+                            <input{...register('country')} className='checkout__form-field' type='text'  placeholder='Страна'/>
+                            <input {...register('city')}   className='checkout__form-field' type='text' placeholder='Город'/>
+                            <input {...register('street')} className='checkout__form-field' type='text' placeholder='Улица'/>
+                            <input {...register('home')}   className='checkout__form-field' type='text' placeholder='Дом'/>
+                            <input {...register('flat')}   className='checkout__form-field' type='text' placeholder='Квартира'/>
                         </div>
                     </div>
                     <div className='checkout__form-block'>
@@ -100,10 +125,22 @@ const Checkout = () => {
                         <h3 className='checkout__form-title'>
                             Комментарии
                         </h3>
-                        <textarea className='checkout__form-comit' placeholder='Дополнительная информация'></textarea>
+                        <textarea {...register('info')}
+                                  className='checkout__form-comit'
+                                  placeholder='Дополнительная информация'>
+                        </textarea>
                     </div>
                 </form>
             </div>
+            {
+                popup ?
+                    <div className='checkout__popup'>
+                        <h2> ваш заказ принят</h2>
+                        <p style={{color:'',margin:'12px'}}>Через {count} секунд вас перекинут<br/> на главную страницу</p>
+                        <button onClick={() => navigate('/')} style={{padding:'5px 20px',background:'#F1EADC'}}>Перейти на главную страницу</button>
+                    </div> : ''
+            }
+
         </section>
     );
 };
