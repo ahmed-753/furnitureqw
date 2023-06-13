@@ -1,0 +1,11 @@
+.room {
+  margin: 40px 0 150px 0;
+}
+.room__bonus {
+  background: #F8F8F8;
+  display: flex;
+  align-items: center;
+  margin: 30px 0 42px 0;
+}
+
+/*# sourceMappingURL=room.css.map */
