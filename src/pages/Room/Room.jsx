@@ -1,8 +1,14 @@
 import product1 from "../../assets/products/product1.png";
-
+import {useContext} from "react";
+import {CustomContext} from "../../config/context/context.jsx";
 
 
 const Room = () => {
+
+
+
+    const [user] = useContext(CustomContext)
+
     return (
         <section className="room">
             <div className="container">
@@ -11,7 +17,7 @@ const Room = () => {
                         Бонусная программа
                     </h2>
                     <div className="room__top-bonus">
-                        <p>У вас 0 бонусных баллов</p>
+                        <p>У вас {user.point} бонусных баллов</p>
                         <p>Правила бонусной программы</p>
                     </div>
                 </div>

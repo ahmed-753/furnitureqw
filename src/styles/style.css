@@ -23,6 +23,21 @@ button {
   margin: 0 auto;
 }
 
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0.5em;
+  border: 1px solid gray;
+}
+.skeleton__img {
+  margin-top: 10px;
+}
+.skeleton__block {
+  height: 40px;
+}
+
 .header {
   padding-bottom: 30px;
 }
@@ -763,6 +778,42 @@ button {
 td {
   border: 1px solid black;
   padding: 10px;
+}
+
+.footer__navigation {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 126.69%;
+}
+.footer__row {
+  display: flex;
+  align-items: center;
+  column-gap: 50px;
+  padding: 10px 0 50px 0;
+}
+.footer__contact {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+.footer__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 126.69%;
+  color: #414141;
+}
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding-bottom: 10px;
+}
+.footer__info-text {
+  padding: 20px 0 20px 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 126.69%;
+  color: #414141;
 }
 
 /*# sourceMappingURL=style.css.map */

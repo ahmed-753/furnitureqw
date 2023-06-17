@@ -18,7 +18,7 @@ const Card = ({item}) => {
                 }
             </span>
             <Link to={`product/${item.id}`}>
-                <img src={`/${item.image}`} alt="" className="card__image"/>
+                <img src={`${item.images[0]}`} alt="" className="card__image"/>
             </Link>
             <h3 className="card__title">
                 {item.title}

@@ -9,6 +9,7 @@ const Context = (props) => {
     const [hitSale, setHitSale] = useState([]);
     const [favorites, setFavorites] = useState([]);
     const [search, setSearch] = useState('');
+    const [isLoading, setIsLoading] = useState( true)
     const navigate = useNavigate();
 
     //Регистрация
@@ -33,7 +34,8 @@ const Context = (props) => {
                 carts: [],
                 city: '',
                 home: '',
-                street: ''
+                street: '',
+
             }
         }).json().then((res) => {
             setUser(res.user);
@@ -126,6 +128,7 @@ const Context = (props) => {
                 'content-type': 'application/json'
             },
             json: {
+                point: Math.floor(user.point + (order.totalPrice / 100 * 7)),
                 orders:[
                     ...user.orders,order
                 ],
@@ -144,7 +147,10 @@ const Context = (props) => {
     // Фоворить
     const getHitSale = () => {
         api('products?_sort=sale&_order=desc&_limit=12').json()
-            .then((res) => setHitSale(res));
+            .then((res) => {
+                setHitSale(res)
+                setIsLoading(false)
+            });
     };
 
     const favoritesHandler = (product) => {
@@ -176,7 +182,9 @@ const Context = (props) => {
         addCarts,
         addCartsCountPlus,
         addCartsCountMinus,
-        addOrder
+        addOrder,
+        isLoading,
+        setIsLoading
 
 };
 

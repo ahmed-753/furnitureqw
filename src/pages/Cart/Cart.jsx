@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 
 const Cart = () => {
 
-    const {user,addCartsCountMinus,addCartsCountPlus} = useContext(CustomContext)
+    const {user,addCartsCountMinus,addCartsCountPlus,favoritesHandler} = useContext(CustomContext)
     const  navigate = useNavigate()
 
 
@@ -25,7 +25,7 @@ const Cart = () => {
                          user.carts?.map((item) => (
                              <div key={item.id} className='cart__card'>
                                  <div className='cart__card-item'>
-                                     <img src={`/${item.image}`}/>
+                                     <img src={`${item.images[0]}`}/>
                                      <div className='cart__card-info'>
                                          <h3 className='cart__card-title'>
                                              Кускен Navy Blue
@@ -64,7 +64,7 @@ const Cart = () => {
                     </div>
 
                 {
-                    user.carts.length ?  <div className='cart__bottom'>
+                    user.carts?.length ?  <div className='cart__bottom'>
                         <p className='cart__bottom-count'>
                             Итоговая стоимость:
                             {user.carts?.reduce((acc,rec) => acc + rec.price * rec.count, 0)}
