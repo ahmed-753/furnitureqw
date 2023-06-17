@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 
 const Cart = () => {
 
-    const {user,addCartsCountMinus,addCartsCountPlus,favoritesHandler} = useContext(CustomContext)
+    const {user,addCartsCountMinus,addCartsCountPlus,deleteCartItem} = useContext(CustomContext)
     const  navigate = useNavigate()
 
 
@@ -54,7 +54,7 @@ const Cart = () => {
                                          }$
                                      </p>
                                  </div>
-                                 <button className="cart__card-delete">
+                                 <button className="cart__card-delete" onClick={() => deleteCartItem(item.id)}>
                                      x
                                  </button>
                              </div>

@@ -103,7 +103,7 @@ const Room = () => {
                                 <tr key={item.id} className="room__table-info">
                                     <td className="room__table-product">
                                         <img src={item.images[0]} alt="шшшш" />
-                                        Кускен Navy Blue
+                                        <p>{item.title}</p>
                                     </td>
                                     <td>{item.price}</td>
                                     <td>01.05.2020</td>

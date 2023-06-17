@@ -162,6 +162,22 @@ const Context = (props) => {
         }
     };
 
+    const deleteCartItem = (itemId) => {
+        api
+            .patch(`users/${user.id}`, {
+                headers: {
+                    "content-type": "application/json",
+                },
+                json: {
+                    carts: user.carts.filter((item) => item.id !== itemId),
+                },
+            })
+            .json()
+            .then((res) => {
+                setUser(res);
+                localStorage.setItem("user", JSON.stringify(res));
+            });
+    };
 
     useEffect(() => {
         localStorage.setItem('favorites', JSON.stringify(favorites));
@@ -184,7 +200,9 @@ const Context = (props) => {
         addCartsCountMinus,
         addOrder,
         isLoading,
-        setIsLoading
+        setIsLoading,
+        deleteCartItem
+
 
 };
 
