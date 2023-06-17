@@ -24,7 +24,7 @@ const FilterSelect = ({state,setState,array,title}) => {
                 >
                     {
                         array.map((item) => (
-                            <MenuItem key={item.id} value={item}>{
+                            <MenuItem key={item.id} value={item.value}>{
                                 item === 'asc' ? 'по возростанию цены' : item === 'desc' ? 'по убыванию цены' : item === 'rate' ? 'по популярности' : item
                             }</MenuItem>
                         ))

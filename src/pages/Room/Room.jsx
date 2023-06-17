@@ -1,4 +1,3 @@
-import product1 from "../../assets/products/product1.png";
 import {useContext} from "react";
 import {CustomContext} from "../../config/context/context.jsx";
 
@@ -7,7 +6,7 @@ const Room = () => {
 
 
 
-    const [user] = useContext(CustomContext)
+    const {user} = useContext(CustomContext)
 
     return (
         <section className="room">
@@ -52,37 +51,37 @@ const Room = () => {
                         <div className="room__form-top">
                             <label className="room__form-label">
                                 Имя
-                                <input type="text" placeholder="Дмитрий"/>
+                                <input type="text"   defaultValue={user.name} placeholder="Дмитрий"/>
                             </label>
                             <label className="room__form-label">
                                 E-mail
-                                <input type="email" placeholder="morlibae@gmail.com"/>
+                                <input type="email" defaultValue={user.email} placeholder="morlibae@gmail.com"/>
                             </label>
                             <label className="room__form-label">
                                 Фамилия
-                                <input type="text" placeholder="Галькевич"/>
+                                <input type="text"  defaultValue={user.surname} placeholder="Галькевич"/>
                             </label>
                             <label className="room__form-label">
                                 Номер телефона
-                                <input type="tel" placeholder="+7 (901) 784-65-45"/>
+                                <input type="tel"  defaultValue={user.phone} placeholder="+7 (901) 784-65-45"/>
                             </label>
                         </div>
                         <div className="room__form-address room__form-top">
                             <label className="room__form-label">
                                 Город
-                                <input type="text" placeholder="Москва"/>
+                                <input type="text" defaultValue={user.city} placeholder="Москва"/>
                             </label>
                             <label className="room__form-label room__form-label_street">
                                 Улица
-                                <input type="text" placeholder="Москва"/>
+                                <input type="text"   placeholder="Москва"/>
                             </label>
                             <label className="room__form-label">
                                 Дом/Корпус
-                                <input type="text" placeholder="16/1"/>
+                                <input type="text"  placeholder="16/1"/>
                             </label>
                             <label className="room__form-label">
                                 Квартира
-                                <input type="text" placeholder="29"/>
+                                <input type="text"   placeholder="29"/>
                             </label>
                         </div>
                         <button className="room__form-btn">
@@ -99,21 +98,19 @@ const Room = () => {
                             <td className="room__table-title">Дата</td>
                             <td className="room__table-title">Статус</td>
                         </tr>
-                        <tr className="room__table-info">
-                            <td className="room__table-product">
-                                <img src={product1} alt=""/>
-                                Кускен Navy Blue
-                            </td>
-                            <td>
-                                16990
-                            </td>
-                            <td>
-                                01.05.2020
-                            </td>
-                            <td>
-                                Ожидается
-                            </td>
-                        </tr>
+                        {
+                            user.carts?.map((item) => (
+                                <tr key={item.id} className="room__table-info">
+                                    <td className="room__table-product">
+                                        <img src={item.images[0]} alt="шшшш" />
+                                        Кускен Navy Blue
+                                    </td>
+                                    <td>{item.price}</td>
+                                    <td>01.05.2020</td>
+                                    <td>Ожидается</td>
+                                </tr>
+                            ))
+                        }
                         <p className="room__all">
                             Смотреть все
                         </p>

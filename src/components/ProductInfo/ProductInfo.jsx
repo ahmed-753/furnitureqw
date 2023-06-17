@@ -31,7 +31,7 @@ const ProductInfo = ({product}) => {
                 <ul className="product__info-colors">
                     {
                         colors.map((item, idx) => (
-                            <li key={idx} style={{background: item}}>
+                            <li key={item.id} style={{background: item}}>
                                 ass
                             </li>
                         ))
