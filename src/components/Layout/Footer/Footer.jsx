@@ -1,4 +1,6 @@
 import React from 'react';
+import {BsFillTelephoneFill} from 'react-icons/bs'
+import {AiFillInstagram} from 'react-icons/ai'
 
 
 const Footer = () => {
@@ -27,19 +29,16 @@ const Footer = () => {
 
                     <div style={{display:'flex', flexDirection:'column'}}>
                         <div className='footer__info'>
-                            <img />
                             <p className='footer__info-text'>г. Анапа, Анапское шоссе,<br/>
                                 30 Ж/К Черное море
                             </p>
                         </div >
                         <div className='footer__contact'>
-                            <img />
+                            <BsFillTelephoneFill />
                             <p>8 (964) 89 99 119</p>
 
-                            <img />
-                            <p>INSTAGRAM</p>
-
-                            <img/>
+                            <AiFillInstagram/>
+                            <p>Instagram</p>
                             <p>mebel_loft_anapa@mail.ru</p>
                         </div>
                     </div>

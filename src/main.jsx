@@ -9,13 +9,13 @@ import {SkeletonTheme} from "react-loading-skeleton"
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+
    <SkeletonTheme>
        <BrowserRouter>
            <Context>
-               <App/>
+                <App/>
            </Context>
        </BrowserRouter>
    </SkeletonTheme>
-
 
 );

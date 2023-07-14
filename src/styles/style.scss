@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
+root{
+  --bg-dark:#060606;
+  --bg-light:#e9eaee;
+}
 
 *{
   padding: 0;
@@ -38,6 +42,16 @@ button{
     height: 40px;
   }
 
+}
+
+.layout{
+  background-color: var(--bg-light);
+  color: black;
+  height: 100vh;
+}
+
+.layout.dark{
+  background-color: var(--bg-dark);
 }
 
 

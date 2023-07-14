@@ -3,7 +3,7 @@ import {MdKitchen} from 'react-icons/md';
 import {GiPersonInBed} from 'react-icons/gi';
 import {MdOutlineLiving} from 'react-icons/md';
 import {HiDesktopComputer} from 'react-icons/hi';
-import {BsThreeDotsVertical} from 'react-icons/bs';
+import {BsThreeDotsVertical,BsFillSunFill} from 'react-icons/bs';
 import {MdOutlineChildFriendly} from 'react-icons/md';
 
 const HeaderBottom = () => {
@@ -47,7 +47,8 @@ const HeaderBottom = () => {
                 Детская
             </a>
             <a href="#" className='header__bottom-link red'>
-                Акция
+                <BsFillSunFill/>
+
             </a>
             <a href="#" className='header__bottom-link'>
 <span>

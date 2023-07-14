@@ -201,7 +201,8 @@ const Context = (props) => {
         addOrder,
         isLoading,
         setIsLoading,
-        deleteCartItem
+        deleteCartItem,
+
 
 
 };
